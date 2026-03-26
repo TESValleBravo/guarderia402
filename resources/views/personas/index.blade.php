@@ -21,6 +21,7 @@
                                     <th>Apellido Paterno</th>
                                     <th>Apellido Materno</th>
                                     <th>Fecha</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
 
@@ -28,13 +29,21 @@
                                 @foreach($personas as $persona)
                                 <tr>
                                     <td class="fw-bold">{{$persona->id_persona}}</td>
-                                    <td>{{$persona->nom}}</td>
-                                    <td>{{$persona->ap}}</td>
-                                    <td>{{$persona->am}}</td>
+                                    <td>{{$persona->nombre}}</td>
+                                    <td>{{$persona->apellido_paterno}}</td>
+                                    <td>{{$persona->apellido_materno}}</td>
                                     <td>
                                         <span class="badge bg-info text-dark">
-                                            {{$persona->fecha_nac}}
+                                            {{$persona->fecha_nacimiento}}
                                         </span>
+                                    </td>
+                                    <td>
+                                        <form action="{{route("personas.destroy",$persona)}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Eliminar</button>
+
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

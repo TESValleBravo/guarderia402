@@ -68,5 +68,8 @@ class PersonaController extends Controller
     public function destroy(Persona $persona)
     {
         //
+       // dd("hola desde destroy");
+        $persona->delete();
+        return redirect()->route("personas.index");
     }
 }
