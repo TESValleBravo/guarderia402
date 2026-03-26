@@ -32,7 +32,12 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+        $request->validate([
+            'nombre' => 'required',
+            'apellido_paterno' => 'required',
+            'apellido_materno' => 'required',
+            'fecha_nacimiento' => 'required',
+        ]);
         //
         Persona::create($request->all());
         return redirect()->route("personas.index");

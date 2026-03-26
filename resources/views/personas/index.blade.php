@@ -9,6 +9,12 @@
                 <div class="card-header bg-success text-white text-center">
                     <h4 class="mb-0">Lista de Personas</h4>
                 </div>
+               <div class="row">
+                   <div class="col-1">
+                       <a type="button" class="btn btn-info" href="{{route("personas.create")}}">Agregar</a>
+
+                   </div>
+               </div>
 
                 <div class="card-body p-4">
 
@@ -16,7 +22,7 @@
                         <table class="table table-hover table-striped align-middle text-center">
                             <thead class="table-dark">
                                 <tr>
-                                    <th>ID</th>
+                                    <th>No.</th>
                                     <th>Nombre</th>
                                     <th>Apellido Paterno</th>
                                     <th>Apellido Materno</th>
@@ -26,9 +32,10 @@
                             </thead>
 
                             <tbody>
-                                @foreach($personas as $persona)
+
+                            @foreach($personas as $persona)
                                 <tr>
-                                    <td class="fw-bold">{{$persona->id_persona}}</td>
+                                    <td class="fw-bold">{{$loop->index+1}}</td>
                                     <td>{{$persona->nombre}}</td>
                                     <td>{{$persona->apellido_paterno}}</td>
                                     <td>{{$persona->apellido_materno}}</td>
